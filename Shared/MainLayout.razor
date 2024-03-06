@@ -1,0 +1,18 @@
+﻿@using MudBlazor
+@inherits LayoutComponentBase
+
+<style>
+    body{
+        background: linear-gradient(to top right, limegreen, darkolivegreen, forestgreen, darkgreen);
+		font-family: cursive;
+	}
+</style>
+
+<div class="page">
+    <NavMenu />
+    <main>
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>

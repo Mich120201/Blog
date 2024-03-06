@@ -1,0 +1,175 @@
+﻿@page "/newpost"
+
+@inject HttpClient Http
+
+@using Blog.Models
+
+@using Microsoft.Extensions.Hosting
+
+@using MudBlazor
+
+@using System.Net.Http.Json
+@using System.Net.Http
+@using System.Threading.Tasks
+
+@using static Blog.Pages.Home
+
+<style>
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 140vh;
+        font-family: cursive;
+    }
+
+    input,
+    textarea {
+        width: 100%;
+        padding: 5px;
+        outline: none;
+    }
+
+    label {
+        line-height: 1.9rem;
+    }
+
+    input[type="submit"] {
+        transform: translate(2.2%);
+        padding: 3px;
+        margin-top: 0.6rem;
+        font-family: cursive;
+        font-weight: bold;
+    }
+
+    fieldset {
+        padding: 20px 40px;
+    }
+</style>
+
+@* <MudTextField @bind-Value="id" Style="margin-bottom: 10px"></MudTextField>
+<MudButton OnClick="DeletePost">Delete</MudButton> *@
+
+@if (!Admin)
+{
+    <div style="margin-bottom:300px">
+        <MudText Typo="Typo.h2" Style="color:red; text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;">Attenzione solo gli admin hanno accesso a questa pagina!!</MudText>
+
+	    <MudTextField @bind-Value="User" Style="margin-bottom: 10px"></MudTextField>
+        @if (wrongU == 2)
+		{
+			<MudText Typo="Typo.h6" Style="color:red">Nome utente errato</MudText>
+		}
+	    <MudTextField @bind-Value="Password"></MudTextField>
+        @if (wrongP)
+        {
+            <MudText Typo="Typo.h6" Style="color:red">Password errata</MudText>
+		}
+        else if (wrongA)
+		{
+			<MudText Typo="Typo.h6" Style="color:red">Non sei un admin</MudText>
+        }
+	    <MudButton OnClick="Check" Style="margin-top:10px">Login</MudButton>
+    </div>
+}
+else
+{
+    <form action="example-server.com">
+        <fieldset>
+            <legend style="color:lime">Nuovo Post</legend>
+
+            <label for="title">Title</label>
+            <MudTextField @bind-Value="title" id="title" required />
+
+            <label for="content">Content</label>
+            <textarea id="content" cols="50" rows="20" @bind="content" required></textarea>
+
+            <label for="type">Type</label>
+            <MudTextField @bind-Value="type" id="type" required />
+
+            <label for="url">Url</label>
+            <MudTextField @bind-Value="url" id="url" required />
+
+            <div>
+                <MudButton OnClick="AddPost" Color="Color.Primary" Class="submit-btn">Aggiungi</MudButton>
+                <MudButton OnClick="Cancel" Color="Color.Primary" Class="submit-btn">Cancella</MudButton>
+            </div>
+        </fieldset>
+    </form>
+}
+
+@code {
+    public bool Admin;
+
+    public string? User;
+    public string? Password;
+
+    public string? title;
+    public string? content;
+    public string? type;
+    public string? url;
+
+    public string? id;
+
+    public Users[]? users;
+
+    public int wrongU = 0;
+    public bool wrongP = false;
+    public bool wrongA = false;
+
+    private async Task Check()
+    {
+        users = await Http.GetFromJsonAsync<Users[]>("api/Users");
+        wrongA = false;
+        foreach (var user in users)
+        {
+            if (user.Name == User && user.PasswordHash == Password)
+            {
+                if (user.Email == "no")
+                {
+                    wrongA = true;
+                }
+                else
+                {
+                    Admin = true;
+                }
+                wrongU = 1;
+                break;
+            }
+            else if (user.Name == User && user.PasswordHash != Password)
+            {
+				wrongP = true;
+				break;
+			}
+        }
+        if (wrongU == 0)
+		{
+			wrongU = 2;
+		}
+    }
+
+    private async Task AddPost()
+    {
+        var post = new Post
+		{
+			Title = title,
+            Description = content,
+            Type = type,
+            Url = url,
+            Data = DateTime.Now
+ 		};
+
+		await Http.PostAsJsonAsync("api/Post", post);
+	}
+
+    private void Cancel()
+	{
+		title = "";
+		content = "";
+	}
+
+    private async Task DeletePost()
+	{
+		await Http.DeleteAsync($"api/Post/{id}");
+	}
+}

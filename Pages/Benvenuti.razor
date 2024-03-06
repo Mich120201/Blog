@@ -1,0 +1,150 @@
+﻿@page "/"
+
+@using MudBlazor
+@using MudBlazor.Utilities
+
+<style>
+	.home{
+		color: #ffffff;
+	}
+</style>
+
+<MudText Typo="Typo.h1" Style="color:white; margin-left: 500px; margin-top:100px; margin-bottom:50px; text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;">🐾Storie Di Coda🐾</MudText>
+
+<MudContainer Class="home">
+	<MudGrid>
+		<MudItem xs="12" sm="6" md="4" lg="3" Style="margin-left: 170px; background: linear-gradient(to top right, darkgreen, forestgreen, darkolivegreen, limegreen); width: 850px; margin-bottom: 30px; box-shadow:0 0 50px rgba(0, 0, 0, 1)">
+			<MudGrid Style="display:flex">
+				<MudItem>
+					<MudImage Src="images/Iniziale_1.jpg" Elevation="25" Class="rounded-lg" Style="width:200px; height:250px" />
+				</MudItem>
+				<MudLink Href="/giochi" Style="text-decoration:none; color: #FFFFFF">
+					<MudItem>
+						<MudText Style="margin-top:50px; text-align:left; margin-left: 20px; text-decoration:none">
+							<MudCardContent>
+								Benvenuti nel mondo affascinante e divertente dei nostri amici a quattro zampe!
+							</MudCardContent>
+							<MudCardContent>
+								Benvenuti nel Storie Di Coda, il luogo ideale per tutti coloro che condividono la gioia
+							</MudCardContent>
+							<MudCardContent>
+								di avere un compagno peloso nella propria vita. Questo è il posto dove l'amore
+							</MudCardContent>
+							<MudCardContent>
+								per i cani si unisce alla passione per scoprire tutto ciò che c'è da sapere su di loro.
+							</MudCardContent>
+						</MudText>
+						<MudText Typo="Typo.caption" Style="color:goldenrod; margin-top: 120px; text-align:left; margin-left:20px;">Clicca qui per andare vedere i giochi</MudText>
+					</MudItem>
+				</MudLink>
+			</MudGrid>
+		</MudItem>
+		<MudItem xs="12" sm="6" md="4" lg="3" Style="margin-left: 450px; background: linear-gradient(to top right, limegreen, darkolivegreen, forestgreen, darkgreen); width: 800px; margin-bottom: 20px; box-shadow:0 0 50px rgba(0, 0, 0, 1)">
+			<MudGrid Style="display:flex">
+				<MudLink Href="/consigli" Style="text-decoration:none; color: #FFFFFF">
+					<MudItem>
+						<MudText Style="margin-top:60px; text-align:left; margin-left:48px;">
+							<MudCardContent>
+								In questo spazio accogliente, esploreremo insieme le varie razze 
+							</MudCardContent>
+							<MudCardContent>
+								canine, scopriremo curiosità divertenti, daremo consigli pratici
+							</MudCardContent>
+							<MudCardContent>
+								pratici sull'addestramento e sulla cura quotidiana, e condivideremo
+							</MudCardContent>
+							<MudCardContent>
+								storie ispiranti di cani straordinari e dei loro affettuosi proprietari.
+							</MudCardContent>
+						</MudText>
+						<MudText Typo="Typo.caption" Style="color:goldenrod; margin-top: 120px; text-align:left;margin-left:48px;">Clicca qui per vedere tutti i consigli</MudText>
+					</MudItem>
+				</MudLink>
+				<MudItem>
+					<MudImage Src="images/Iniziale_2.jpg" Elevation="25" Class="rounded-lg" Style="width:220px; height:250px; margin-left:27px" />
+				</MudItem>
+			</MudGrid>
+		</MudItem>
+		<MudItem xs="12" sm="6" md="4" lg="3" Style="margin-left: 170px; background: linear-gradient(to top right, darkgreen, forestgreen, darkolivegreen, limegreen); width: 820px; margin-bottom: 20px; box-shadow:0 0 50px rgba(0, 0, 0, 1)">
+			<MudGrid Style="display:flex">
+				<MudItem>
+				<MudImage Src="images/Iniziale_3.jpg" Elevation="25" Class="rounded-lg" Style="width:200px; height:250px" />
+				</MudItem>
+				<MudLink Href="/accessori" Style="text-decoration:none; color: #FFFFFF">
+					<MudItem>
+						<MudText Style="margin-top:50px; text-align:left; margin-left:20px;">
+							<MudCardContent>
+								Dal cucciolo che cerca di capire il mondo circostante alla dolce anzianità di
+							</MudCardContent>
+							<MudCardContent>
+								un cane più anziano, ogni fase della vita di un cane è unica e degna di essere
+							</MudCardContent>
+							<MudCardContent>
+								celebrata. Tratteremo temi come la nutrizione, la salute, l'educazione e anche
+							</MudCardContent>
+							<MudCardContent>
+								le ultime tendenze nel mondo degli accessori per cani.
+							</MudCardContent>
+						</MudText>
+						<MudText Typo="Typo.caption" Style="color:goldenrod; margin-top: 120px; text-align:left; margin-left:20px;">Clicca qui per vedere tutti gli accessori</MudText>
+					</MudItem>
+				</MudLink>
+			</MudGrid>
+		</MudItem>
+		<MudItem xs="12" sm="6" md="4" lg="3" Style="margin-left: 400px; background: linear-gradient(to top right, limegreen, darkolivegreen, forestgreen, darkgreen); width: 850px; margin-bottom: 20px; box-shadow:0 0 50px rgba(0, 0, 0, 1)">
+			<MudGrid Style="display:flex">
+				<MudLink Href="/diario" Style="text-decoration:none; color: #FFFFFF">
+					<MudItem>
+						<MudText Style="margin-top:50px; margin-left: 48px; text-align:left">
+							<MudCardContent>
+								Inoltre, non mancheranno le emozionanti avventure e le esperienze personali
+							</MudCardContent>
+							<MudCardContent>
+								con i nostri amici a quattro zampe. Ogni cane è un individuo speciale, e
+							</MudCardContent>
+							<MudCardContent>
+								vogliamo condividere le storie di amore, le sfide superate e le
+							</MudCardContent>
+							<MudCardContent>
+								avventure con i nostri compagni pelosi.
+							</MudCardContent>
+						</MudText>
+						<MudText Typo="Typo.caption" Style="color:goldenrod; margin-top: 140px; text-align:left; margin-left:48px;">Clicca qui per vedere il diario</MudText>
+					</MudItem>
+				</MudLink>
+				<MudItem>
+					<MudImage Src="images/Iniziale_4.jpg" Elevation="25" Class="rounded-lg" Style="width:208px; height:250px; margin-left:30px" />
+				</MudItem>
+			</MudGrid>
+		</MudItem>
+		<MudItem xs="12" sm="6" md="4" lg="3" Style="margin-left: 170px; margin-bottom: 40px; background: linear-gradient(to top right, darkgreen, forestgreen, darkolivegreen, limegreen); width: 920px; box-shadow:0 0 50px rgba(0, 0, 0, 1)">
+			<MudGrid Style="display:flex">
+				<MudItem>
+					<MudImage Src="images/Iniziale_5.jpg" Elevation="25" Class="rounded-lg" Style="width:200px; height:250px" />
+				</MudItem>
+				<MudLink Href="/home" Style="text-decoration:none; color: #FFFFFF">
+					<MudItem>
+						<MudText Style="margin-top:50px; text-align:left; margin-left: 30px">
+							<MudCardContent>
+								Unisciti a noi in questo viaggio emozionante e affettuoso nel mondo dei cani. Che tu sia
+							</MudCardContent>
+							<MudCardContent>
+								un appassionato proprietario di lunga data o un futuro amante dei cani in cerca di
+							</MudCardContent>
+							<MudCardContent>
+								consigli utili, c'è sempre qualcosa di nuovo da imparare e da condividere qui su
+							</MudCardContent>
+							<MudCardContent>
+								Storie Di Coda. Preparati a immergerti in un mondo di coda-scodinzoli, bagni di fango
+							</MudCardContent>
+							<MudCardContent>
+								e amore incondizionato. Benvenuti nel nostro rifugio virtuale per gli amanti dei cani! 🐾
+							</MudCardContent>
+						</MudText>
+						<MudText Typo="Typo.caption" Style="color:goldenrod; margin-top: 120px; text-align:left; margin-left:30px;">Clicca qui per andare alla Home</MudText>
+					</MudItem>
+				</MudLink>
+			</MudGrid>
+		</MudItem>
+	</MudGrid>
+</MudContainer>
