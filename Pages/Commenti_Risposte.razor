@@ -1,0 +1,483 @@
+﻿@page "/{id}/{type}"
+
+@inject HttpClient Http
+
+@inject IJSRuntime JSRuntime
+
+@inject NavigationManager NavigationManager
+
+@using Blog.Models
+
+@using Microsoft.Extensions.Hosting
+
+@using MudBlazor
+
+@using System.Net.Http.Json
+@using System.Net.Http
+
+@using System.Threading.Tasks
+
+@using static Blog.Pages.Home
+
+<style>
+	body {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 160vh;
+		font-family: cursive;
+	}
+
+	input,
+	textarea {
+		width: 100%;
+		padding: 5px;
+		outline: none;
+	}
+
+	label {
+		line-height: 1.9rem;
+	}
+
+	input[type="submit"] {
+		transform: translate(2.2%);
+		padding: 3px;
+		margin-top: 0.6rem;
+		font-family: cursive;
+		font-weight: bold;
+	}
+
+	fieldset {
+		padding: 20px 40px;
+	}
+</style>
+
+<MudItem Style="margin-left:400px">
+	<MudSwitch @bind-Value="anonimo" Label="Anonimo" Color="Color.Primary" Style="margin-left: 10px"></MudSwitch>
+	@if (type == "commento")
+	{
+		@if (anonimo)
+		{
+			<form action="example-server.com">
+				<fieldset>
+					<MudItem Style="margin-left:auto; margin-right:400px">
+						<MudText Typo="Typo.h2" Style="color:lime;">Aggingi Commento</MudText>
+						<MudText Typo="Typo.h6" Style="color:lime">Inserisci il testo del tuo commento</MudText>
+						<textarea id="content" cols="50" rows="20" @bind="comment" required></textarea>
+						<MudButton OnClick="AddComment" Style="margin-top: 10px: margin-bottom: 20px">Aggiungi Commento</MudButton>
+					</MudItem>
+				</fieldset>
+			</form>
+		}
+		else if (anonimo == false)
+		{
+			<form action="example-server.com">
+				<fieldset>
+					<MudItem Style="margin-left:auto; margin-right:400px">
+						<div style="display:flex">
+							<MudText Typo="Typo.h2" Style="color:lime;">Aggingi Commento</MudText>
+							<MudSwitch @bind-Value="register" Label="Registarti" Color="Color.Primary" Style="margin-left: 130px;"></MudSwitch>
+						</div>
+						<MudText Typo="Typo.h6" Style="color:lime">Esegui il login per farti riconoscere, se non sei registrato, clicca il bottone registarti</MudText>
+						<MudText Typo="Typo.h6" Style="color:lime">per salvare il nome e la password del tuo account</MudText>
+						<MudText Typo="Typo.h6" Style="color:lime">Inserisci il tuo username</MudText>
+						<MudTextField @bind-Value="User" Style="margin-top: 10px"></MudTextField>
+						@if(esiste)
+						{
+							<MudText Typo="Typo.h6" Style="color:red">Username già esistente</MudText>
+						}
+						@if (wrongU == 2)
+						{
+							<MudText Typo="Typo.h6" Style="color:red">Nome utente errato</MudText>
+						}
+						<MudText Typo="Typo.h6" Style="color:lime">Inserisci la tua password</MudText>
+						<MudTextField @bind-Value="password" InputType="InputType.Password" Style="margin-top: 10px"></MudTextField>
+						@if(passwrong)
+						{
+							<MudText Typo="Typo.h6" Style="color:red">Password errata</MudText>
+						}
+						@if(Lenght)
+						{
+							<MudText Typo="Typo.h6" Style="color:red">La password deve contenere almeno 8 caratteri</MudText>
+						}
+						@if(Upper)
+						{
+							<MudText Typo="Typo.h6" Style="color:red">La password deve contenere almeno una lettera maiuscola</MudText>
+						}
+						@if(Lower)
+						{
+							<MudText Typo="Typo.h6" Style="color:red">La password deve contenere almeno una lettera minuscola</MudText>
+						}
+						@if(Digit)
+						{
+							<MudText Typo="Typo.h6" Style="color:red">La password deve contenere almeno un numero</MudText>
+						}
+						@if(Special)
+						{
+							<MudText Typo="Typo.h6" Style="color:red">La password deve contenere almeno un carattere speciale</MudText>
+						}
+						<MudText Typo="Typo.h6" Style="color:lime">Inserisci il testo del tuo commento</MudText>
+						<textarea id="content" cols="50" rows="20" @bind="comment" required></textarea>
+						@if(register)
+						{
+							<MudButton OnClick="AddComment" Style="margin-top: 10px"> Registrati e Aggiungi Commento</MudButton>
+						}
+						else
+						{
+							<MudButton OnClick="AddCommentLogin" Style="margin-top: 10px">Aggiungi Commento</MudButton>
+						}
+					</MudItem>
+				</fieldset>
+			</form>
+		}
+	}
+	else if (type == "rispondere")
+	{
+		@if (anonimo)
+		{
+			<form action="example-server.com">
+				<fieldset>
+					<MudItem Style="margin-left:auto; margin-right:400px">
+						<MudText Typo="Typo.h2" Style="color:lime;">Aggingi Risposta</MudText>
+						<MudText Typo="Typo.h6" Style="color:lime">Inserisci il testo della tua risposta</MudText>
+						<textarea id="content" cols="50" rows="20" @bind="rispost" required></textarea>
+						<MudButton OnClick="AddRisposta" Style="margin-top: 10px">Aggiungi Risposta</MudButton>
+					</MudItem>
+				</fieldset>
+			</form>
+		}
+		else if (anonimo == false)
+		{
+			<form action="example-server.com">
+				<fieldset>
+					<MudItem Style="margin-left:auto; margin-right:400px">
+						<div style="display:flex">
+							<MudText Typo="Typo.h2" Style="color:lime;">Aggingi Risposta</MudText>
+							<MudSwitch @bind-Value="register" Label="Registarti" Color="Color.Primary" Style="margin-left: 10px;"></MudSwitch>
+						</div>
+						<MudText Typo="Typo.h6" Style="color:lime">Esegui il login per farti riconoscere, se non sei registrato, clicca il bottone registarti</MudText>
+						<MudText Typo="Typo.h6" Style="color:lime">per salvare il nome e la password del tuo account</MudText>
+						<MudTextField @bind-Value="User" Style="margin-top: 10px"></MudTextField>
+						@if(esiste)
+						{
+							<MudText Typo="Typo.h6" Style="color:red">Username già esistente</MudText>
+						}
+						@if (wrongU == 2)
+						{
+							<MudText Typo="Typo.h6" Style="color:red">Nome utente errato</MudText>
+						}
+						<MudText Typo="Typo.h6" Style="color:lime">Inserisci la tua password</MudText>
+						<MudTextField @bind-Value="password" InputType="InputType.Password" Style="margin-top: 10px"></MudTextField>
+						@if (passwrong)
+						{
+							<MudText Typo="Typo.h6" Style="color:red">Password errata</MudText>
+						}
+						@if (Lenght)
+						{
+							<MudText Typo="Typo.h6" Style="color:red">La password deve contenere almeno 8 caratteri</MudText>
+						}
+						@if (Upper)
+						{
+							<MudText Typo="Typo.h6" Style="color:red">La password deve contenere almeno una lettera maiuscola</MudText>
+						}
+						@if (Lower)
+						{
+							<MudText Typo="Typo.h6" Style="color:red">La password deve contenere almeno una lettera minuscola</MudText>
+						}
+						@if (Digit)
+						{
+							<MudText Typo="Typo.h6" Style="color:red">La password deve contenere almeno un numero</MudText>
+						}
+						@if (Special)
+						{
+							<MudText Typo="Typo.h6" Style="color:red">La password deve contenere almeno un carattere speciale</MudText>
+						}
+						<MudText Typo="Typo.h6" Style="color:lime">Inserisci il testo della tua risposta</MudText>
+						<textarea id="content" cols="50" rows="20" @bind="rispost" required></textarea>
+						@if(register)
+						{
+							<MudButton OnClick="AddRisposta" Style="margin-top: 10px"> Registrati e Aggiungi Risposta</MudButton>
+						}
+						else
+						{
+							<MudButton OnClick="AddRispostaLogin" Style="margin-top: 10px">Aggiungi Risposta</MudButton>
+						}
+					</MudItem>
+				</fieldset>
+			</form>
+		}
+	}
+</MudItem>
+
+@code {
+	[Parameter] public string type { get; set; } = string.Empty;
+	[Parameter] public string id { get; set; } = string.Empty;
+
+	bool anonimo = false;
+	bool register = false;
+	bool esiste = false;
+	bool passwrong = false;
+
+	bool Lenght = false;
+	bool Upper = false;
+	bool Lower = false;
+	bool Digit = false;
+	bool Special = false;
+
+	int wrongU = 0;
+
+	public string? User = "";
+	public string? comment = "";
+
+	public string? password;
+
+	public Guid postId;
+	public Guid commentId;
+
+	public string? rispost = "";
+
+	public Users[]? users;
+
+	protected override async Task OnInitializedAsync()
+	{
+		users = await Http.GetFromJsonAsync<Users[]>($"api/Users");
+	}
+
+	public async Task AddComment()
+	{
+		Guid.TryParse(id, out postId);
+		if (comment != "" && anonimo == false)
+		{
+			esiste = false;
+			foreach (var u in users)
+			{
+				if (u.Name == User)
+				{
+					esiste = true;
+					break;
+				}
+			}
+			if (esiste != true)
+			{
+				if (!IsPasswordStrong(password))
+				{	
+					var commento = new Commenti
+						{
+							Testo = comment,
+							Autore = User,
+							Data = DateTime.Now,
+							PostId = postId
+						};
+					await Http.PostAsJsonAsync($"api/Commenti", commento);
+					var user = new Users
+						{
+							Name = User,
+							PasswordHash = password,
+							Email = "no"
+						};
+					await Http.PostAsJsonAsync($"api/Users", user);
+					await JSRuntime.InvokeVoidAsync("history.back");
+				}
+			}
+			comment = "";
+			User = "";
+			password = "";
+		}
+		else if (comment != "" && anonimo)
+		{
+			string u_anonimo = "Anonimo";
+			Random random = new Random();
+			int numeroCasuale = random.Next();
+			u_anonimo = u_anonimo + numeroCasuale.ToString();
+			var commento = new Commenti
+				{
+					Testo = comment,
+					Autore = u_anonimo,
+					Data = DateTime.Now,
+					PostId = postId
+				};
+			await Http.PostAsJsonAsync($"api/Commenti", commento);
+			comment = "";
+			await JSRuntime.InvokeVoidAsync("history.back");
+		}
+	}
+
+	public async Task AddCommentLogin()
+	{
+		Guid.TryParse(id, out postId);
+		if (comment != "")
+		{
+			foreach (var u in users)
+			{
+				if (u.Name == User)
+				{
+					passwrong = false;
+					if(password == u.PasswordHash)
+					{
+						var commento = new Commenti
+							{
+								Testo = comment,
+								Autore = User,
+								Data = DateTime.Now,
+								PostId = postId
+							};
+						await Http.PostAsJsonAsync($"api/Commenti", commento);
+						comment = "";
+						User = "";
+						password = "";
+						await JSRuntime.InvokeVoidAsync("history.back");
+					}
+					else
+					{
+						passwrong = true;
+						password = "";
+					}
+					wrongU = 1;
+				}
+			}
+			if (wrongU == 0)
+			{
+				wrongU = 2;
+			}
+		}
+	}
+
+	public async Task AddRisposta()
+	{
+		Guid.TryParse(id, out commentId);
+		if (rispost != "" && anonimo == false)
+		{
+			esiste = false;
+			foreach (var u in users)
+			{
+				if (u.Name == User)
+				{
+					esiste = true;
+					break;
+				}
+			}
+			if (esiste != true)
+			{
+				if (!IsPasswordStrong(password))
+				{
+					var risposta = new Risposte
+						{
+							Testo = rispost,
+							Autore = User,
+							Data = DateTime.Now,
+							CommentId = commentId
+						};
+					await Http.PostAsJsonAsync($"api/Risposte", risposta);
+					var user = new Users
+						{
+							Name = User,
+							PasswordHash = password,
+							Email = "no"
+						};
+					await Http.PostAsJsonAsync($"api/Users", user);
+					await JSRuntime.InvokeVoidAsync("history.back");
+				}
+			}
+			rispost = "";
+			User = "";
+			password = "";
+		}
+		else if (rispost != "" && anonimo)
+		{
+			string u_anonimo = "Anonimo";
+			Random random = new Random();
+			int numeroCasuale = random.Next();
+			u_anonimo = u_anonimo + numeroCasuale.ToString();
+			var risposta = new Risposte
+				{
+					Testo = rispost,
+					Autore = u_anonimo,
+					Data = DateTime.Now,
+					CommentId = commentId
+				};
+			await Http.PostAsJsonAsync($"api/Risposte", risposta);
+			rispost = "";
+			await JSRuntime.InvokeVoidAsync("history.back");
+		}
+	}
+
+	public async Task AddRispostaLogin()
+	{
+		Guid.TryParse(id, out commentId);
+		if (rispost != "")
+		{
+			foreach (var u in users)
+			{
+				if (u.Name == User)
+				{
+					passwrong = false;
+					if(password == u.PasswordHash)
+					{
+						var risposta = new Risposte
+							{
+								Testo = rispost,
+								Autore = User,
+								Data = DateTime.Now,
+								CommentId = commentId
+							};
+						await Http.PostAsJsonAsync($"api/Risposte", risposta);
+						rispost = "";
+						User = "";
+						password = "";
+						await JSRuntime.InvokeVoidAsync("history.back");
+					}
+					else
+					{
+						passwrong = true;
+						password = "";
+					}
+					wrongU = 1;
+				}
+			}
+			if (wrongU == 0)
+			{
+				wrongU = 2;
+			}
+		}
+	}
+
+	public bool IsPasswordStrong(string password)
+	{
+		Lenght = false;
+		Upper = false;
+		Lower = false;
+		Digit = false;
+		Special = false;
+		if (password.Length < 8)
+		{
+			Lenght = true;
+			return true;
+		}
+
+		if (!password.Any(char.IsUpper))
+		{
+			Upper = true;
+			return true;
+		}
+
+		if (!password.Any(char.IsLower))
+		{
+			Lower = true;
+			return false;
+		}
+
+		if (!password.Any(char.IsDigit))
+		{
+			Digit = true;
+			return true;
+		}
+
+		if (!password.Any(ch => !char.IsLetterOrDigit(ch)))
+		{
+			Special = true;
+			return true;
+		}
+
+		return false;
+	}
+}

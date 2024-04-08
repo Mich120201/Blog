@@ -1,0 +1,37 @@
+﻿@using MudBlazor
+@inherits LayoutComponentBase
+
+<style>
+    h1, h2, h3, h4, h5, h6 {
+        font-family: Oldenburg;
+        font-weight: bold;
+	}
+    p{
+        font-family: Josefin Slab;
+    }
+
+    .footer {
+        bottom: 0;
+        width: 100%;
+        background-color: #f8f9fa;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .material-icons {
+        font-size: 24px;
+        padding: 0 10px;
+    }
+</style>
+
+<div class="page">
+    <NavMenu />
+    <main>
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+

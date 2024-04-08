@@ -1,0 +1,230 @@
+﻿@page "/"
+
+@inject HttpClient Http
+
+@using Blog.Models
+
+@using Microsoft.Extensions.Hosting
+
+@using MudBlazor
+
+@using System.Net.Http.Json
+@using System.Net.Http
+@using System.Threading.Tasks
+
+@using static Blog.Pages.Home
+
+<style>
+	.banner{
+		margin-top: 14px;
+		min-height: 550px;
+		width: 100%;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		background-blend-mode: overlay;
+		object-fit: cover;
+		display: flex;
+		flex-direction: column;
+		justify-content: end;
+		align-items: start;
+		height: 100%;
+		padding: 80px 5%;
+		margin-bottom:	50px;
+		color: #fff;
+		border-radius: 10px;
+	}
+	.banner-content{
+		widht: 100%;
+	}
+	.logo{
+		font-size: 1.5rem;
+		font-weight: 700;
+		color: var(--heading-color);
+	}
+	.featured-post{
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 2rem;
+		width: 100%;
+		justify-content: space-between;
+	}
+	.featured-left{
+		display: flex;
+		grid-template-columns: repeat(1, 1fr);
+		justify-content: space-between;
+		gap: 1.7rem;
+		align-items: start;
+	}
+	.featured-card{
+		width: 55%;
+		border-radius: 10px;
+		box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+	}
+	.featured-right{
+		display: flex;
+		flex-direction: column;
+		gap: 1.7rem;
+	}
+	.btn{
+		padding: 12px 22px;
+		font: 1.125rem;
+		font-weight: 600;
+		background: #000;
+		border-radius: 4px;
+		border: none;
+		letter-spacing: 1px;
+		cursor: pointer;
+		transition: all 0.34s ease-in;
+		color: #fff;
+		outline:none;
+	}
+	.readme-btn{
+		color: #000;
+		padding-bottom: 2px;
+		margin-bottom: 5px;
+		border-radius: 2px;
+		border-bottom: 2px solid var(--text-color);
+	}
+	.first_post{
+		widht: 1000px;
+		height: 1100px;
+	}
+	.post{
+		border-radius: 10px;
+		box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+		padding: 5px 5px;
+		margin-bottom: 3%;
+	}
+	.post_img{
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: 10px;
+	}
+	.about_right{
+		text-align: center;
+		width: 54%;
+		margin-left: 5%;
+	}
+
+	.navbar {
+		right: -100%;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		transition: all 0.45s ease;
+		background-color: #f8f9fa;
+	}
+
+	#navbar {
+		display: flex;
+		justify-content: space-between;
+		position: sticky;
+		top: 0;
+		padding: 10px;
+	}
+
+	.nav-left, .nav-center, .nav-right {
+		display: flex;
+	}
+
+	.nav-center {
+		justify-content: center;
+		flex-grow: 0.5;
+		column-gap: 7.4rem;
+	}
+
+	.link {
+		text-decoration: none;
+	}
+
+	.nav-left {
+		font-family: Oldenburg;
+		font-weight: bold;
+	}
+</style>
+
+@if (posts != null)
+{
+	@for (int i = 0; i < 1; i++)
+	{
+		var post = posts[i];
+		<div class="banner" style="background-image: url('@post.Url'); background-size: cover;">
+			<div class="banner-content" data-sr-id="0" style="visibility: visible; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transition: opacity 2.5s cubic-bezier(0.5, 0, 0, 1) 0.2s, transform 2.5s cubic-bezier(0.5, 0, 0, 1) 0.2s;">
+				<h1>@post.Title</h1>
+				<p>@(post.Description.Length > 100 ? post.Description.Substring(0, 100) + "..." : post.Description)</p>
+				<a href="/@post.Id">
+					<button class="btn">Leggi l'articolo</button>
+				</a>
+			</div>
+		</div>
+
+	}
+	<section>
+		<div class="featured-post">
+			<div class="featured-left" data-sr-id="4" style="visibility: visible; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transition: opacity 2.5s cubic-bezier(0.5, 0, 0, 1) 0.2s, transform 2.5s cubic-bezier(0.5, 0, 0, 1) 0.2s;">
+				@for (int i = 1; i < 3; i++)
+				{
+					var post = posts[i];
+					<div class="featured-card">
+						<img src="@post.Url" class="post_img" style="width: 100%; height: 100%; object-fit: cover;" alt />
+						<h5 class>@post.Title</h5>
+						<p>@(post.Description.Length > 100 ? post.Description.Substring(0, 100) + "..." : post.Description)</p>
+						<a href="/@post.Id">
+							<button class="btn">Leggi l'articolo</button>
+						</a>
+					</div>
+					i++;
+					post = posts[i];
+					<div class="featured-card">
+						<img src="@post.Url" class="post_img" style="width: 100%; height: 100%; object-fit: cover;" alt />
+						<h5 class>@post.Title</h5>
+						<p>@(post.Description.Length > 100 ? post.Description.Substring(0, 100) + "..." : post.Description)</p>
+						<a href="/@post.Id">
+							<button class="btn">Leggi l'articolo</button>
+						</a>
+					</div>
+				}
+			</div>
+			<div class="featured-right" data-rs-id="5" style="visibility: visible; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transition: opacity 2.5s cubic-bezier(0.5, 0, 0, 1) 0.2s, transform 2.5s cubic-bezier(0.5, 0, 0, 1) 0.2s;">
+				@for(int i = 3; i < 6; i++)
+				{
+					var post = posts[i];
+					<div class="post">
+						<h3>@post.Title</h3>
+						<p>@(post.Description.Length > 100 ? post.Description.Substring(0, 100) + "..." : post.Description)</p>
+						<a href="/@post.Id" class="readme-btn">Leggi l'articolo</a>
+					</div>
+					i++;
+					post = posts[i];
+					<div class="post">
+						<h3>@post.Title</h3>
+						<p>@(post.Description.Length > 100 ? post.Description.Substring(0, 100) + "..." : post.Description)</p>
+						<a href="/@post.Id" class="readme-btn">Leggi l'articolo</a>
+					</div>
+					i++;
+					post = posts[i];
+					<div class="post">
+						<h3>@post.Title</h3>
+						<p>@(post.Description.Length > 100 ? post.Description.Substring(0, 100) + "..." : post.Description)</p>
+						<a href="/@post.Id" class="readme-btn">Leggi l'articolo</a>
+					</div>
+				}
+			</div>
+		</div>
+	</section>
+}
+else
+{
+	<MudText Typo="Typo.h1" Style="color:white; margin-left: 500px; margin-top:50px; margin-bottom:50px;">Loading...</MudText>
+}
+
+@code {
+	private Post[]? posts;
+
+	protected override async Task OnInitializedAsync()
+	{
+		posts = await Http.GetFromJsonAsync<Post[]>("api/Post");
+	}
+}

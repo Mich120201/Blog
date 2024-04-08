@@ -1,0 +1,238 @@
+﻿@page "/newpost"
+
+@inject HttpClient Http
+
+@using Blog.Models
+
+@using Microsoft.Extensions.Hosting
+
+@using MudBlazor
+
+@using System.Net.Http.Json
+@using System.Net.Http
+@using System.Threading.Tasks
+
+@using static Blog.Pages.Home
+
+<style>
+    .login {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 55%;
+        margin-top: 16%;
+        margin-left: 20%;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .form{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 65%;
+        margin-top: 1%;
+        margin-left: 18%;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    input,
+    textarea {
+        width: 100%;
+        padding: 5px;
+        outline: none;
+    }
+
+    label {
+        line-height: 1.9rem;
+    }
+
+    input[type="submit"] {
+        transform: translate(2.2%);
+        padding: 3px;
+        margin-top: 0.6rem;
+        font-family: cursive;
+        font-weight: bold;
+    }
+
+    fieldset {
+        padding: 20px 40px;
+    }
+
+    .text {
+        font-size: 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background-color: rgba(255, 255, 255, 0.4);
+        color: black;
+        padding: 1%;
+    }
+
+    .post {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 3%;
+        margin-bottom: 1%;
+        background-image: url('images/Me.jpg');
+        background-size: cover;
+        height: 820px;
+    }
+
+    .post1 {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 3%;
+        margin-bottom: 1%;
+        background-image: url('images/Me.jpg');
+        background-size: cover;
+        height: 620px;
+    }
+
+    .btn {
+        padding: 12px 22px;
+        font: 1.125rem;
+        font-weight: 600;
+        background: #000;
+        border-radius: 4px;
+        border: none;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: all 0.34s ease-in;
+        color: #fff;
+        outline: none;
+    }
+</style>
+
+@if (!Admin)
+{
+    <div class="post1" style="background-image: url('images/Gioco5.jpg'); background-size: cover;">
+        <div class="text" style="text-align:center">
+            <MudText Typo="Typo.h2" Style="color:red; text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;">Attenzione solo gli admin hanno accesso a questa pagina!!</MudText>
+            <input style="margin-bottom:10px" id="User" @bind="User" required />
+            @if (wrongU == 2)
+            {
+                <MudText Typo="Typo.h6" Style="color:red">Nome utente errato</MudText>
+            }
+            <input id="Password" type="password" @bind="Password" required />
+            @if (wrongP)
+            {
+                <MudText Typo="Typo.h6" Style="color:red">Password errata</MudText>
+            }
+            else if (wrongA)
+            {
+                <MudText Typo="Typo.h6" Style="color:red">Non sei un admin</MudText>
+            }
+            <MudButton Class="btn" OnClick="Check" Style="margin-top:10px">Login</MudButton>
+        </div>
+    </div>
+}
+else
+{
+    <div class="post" style="background-image: url('images/Gioco5.jpg'); background-size: cover;">
+        <div class="text" style="text-align:center">
+            <legend style="color:Black">Nuovo Post</legend>
+
+            <label for="title">Title</label>
+            <MudTextField @bind-Value="title" id="title" required />
+
+            <label for="content">Content</label>
+            <textarea id="content" cols="25" rows="10" @bind="content" required></textarea>
+
+            <label for="type">Type</label>
+            <MudTextField @bind-Value="type" id="type" required />
+
+            <label for="url">Url</label>
+            <MudTextField Style="margin-bottom:10px" @bind-Value="url" id="url" required />
+
+            <div>
+                <MudButton Class="btn" OnClick="AddPost" Color="Color.Primary">Aggiungi</MudButton>
+                <MudButton Class="btn" OnClick="Cancel" Color="Color.Primary">Cancella</MudButton>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    public bool Admin;
+
+    public string? User;
+    public string? Password;
+
+    public string? title;
+    public string? content;
+    public string? type;
+    public string? url;
+
+    public string? id;
+
+    public Users[]? users;
+
+    public int wrongU = 0;
+    public bool wrongP = false;
+    public bool wrongA = false;
+
+    private async Task Check()
+    {
+        users = await Http.GetFromJsonAsync<Users[]>("api/Users");
+        wrongA = false;
+        foreach (var user in users)
+        {
+            if (user.Name == User && user.PasswordHash == Password)
+            {
+                if (user.Email == "no")
+                {
+                    wrongA = true;
+                }
+                else
+                {
+                    Admin = true;
+                }
+                wrongU = 1;
+                break;
+            }
+            else if (user.Name == User && user.PasswordHash != Password)
+            {
+				wrongP = true;
+				break;
+			}
+        }
+        if (wrongU == 0)
+		{
+			wrongU = 2;
+		}
+    }
+
+    private async Task AddPost()
+    {
+        var post = new Post
+		{
+			Title = title,
+            Description = content,
+            Type = type,
+            Url = url,
+            Data = DateTime.Now
+ 		};
+
+		await Http.PostAsJsonAsync("api/Post", post);
+	}
+
+    private void Cancel()
+	{
+		title = "";
+		content = "";
+	}
+
+    private async Task DeletePost()
+	{
+		await Http.DeleteAsync($"api/Post/{id}");
+	}
+}

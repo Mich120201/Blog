@@ -1,0 +1,35 @@
+.navbar {
+    right: -100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    transition: all 0.45s ease;
+    background-color: #f8f9fa;
+}
+
+#navbar {
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    padding: 10px;
+}
+
+.nav-left, .nav-center, .nav-right {
+    display: flex;
+}
+
+.nav-center {
+    justify-content: center;
+    flex-grow: 0.5;
+    column-gap: 7.4rem;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.nav-left {
+    font-family: Oldenburg;
+    font-weight: bold;
+}

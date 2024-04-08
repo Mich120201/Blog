@@ -1,0 +1,83 @@
+﻿@using Microsoft.AspNetCore.Components
+@using MudBlazor
+@inject NavigationManager NavManager
+@inject IJSRuntime JSRuntime
+
+<style>
+	.navbar {
+		right: -100%;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		transition: all 0.45s ease;
+		background-color: #f8f9fa;
+	}
+	#navbar {
+		display: flex;
+		justify-content: space-between;
+		position: sticky;
+		top: 0;
+		padding: 10px;
+	}
+
+	.nav-left, .nav-center, .nav-right {
+		display: flex;
+	}
+
+	.nav-center {
+		justify-content: center;
+		flex-grow: 0.5;
+		column-gap: 7.4rem;
+		color:black;
+	}
+
+	.link {
+		text-decoration: none;
+		color: black;
+	}
+	.nav-left{
+		font-family: Oldenburg;
+		font-weight: bold;
+		font-size: 1.5rem;
+		margin-left:2%;
+	}
+	.btn {
+		padding: 12px 22px;
+		font: 1.125rem;
+		font-weight: 600;
+		background: #000;
+		border-radius: 4px;
+		border: none;
+		letter-spacing: 1px;
+		cursor: pointer;
+		transition: all 0.34s ease-in;
+		color: #fff;
+		outline: none;
+	}
+</style>
+
+<nav id="navbar" class="navbar fixed-top">
+	<div class="nav-left">
+		<text>Storie di Coda</text>
+	</div>
+	<div class="nav-center">
+		<a href="#" class="link">Home</a>
+		<a href="/about_me" class="link">Chi Sono</a>
+	</div>
+	<div class="nav-right">
+		<a href="/newpost">
+		<button class="btn">Nuovo Post</button>
+		</a>
+	</div>
+</nav>
+
+@code {
+    void NavigateTo(ChangeEventArgs e)
+    {
+        string url = e.Value.ToString();
+        if (!string.IsNullOrEmpty(url))
+        {
+            NavManager.NavigateTo(url);
+        }
+    }
+}
