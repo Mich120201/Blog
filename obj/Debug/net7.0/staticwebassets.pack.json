@@ -1,0 +1,249 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\Blog.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Blog.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "PackagePath": "staticwebassets\\css\\open-iconic"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "PackagePath": "staticwebassets\\css\\open-iconic"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\css\\open-iconic\\README.md",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\README.md"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\About_me.jpg",
+      "PackagePath": "staticwebassets\\images\\About_me.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\About_me2.jpg",
+      "PackagePath": "staticwebassets\\images\\About_me2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\About_me3.jpg",
+      "PackagePath": "staticwebassets\\images\\About_me3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\About_me4.jpg",
+      "PackagePath": "staticwebassets\\images\\About_me4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\About_me5.jpg",
+      "PackagePath": "staticwebassets\\images\\About_me5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\About_me6.jpg",
+      "PackagePath": "staticwebassets\\images\\About_me6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\Consigli.jpg",
+      "PackagePath": "staticwebassets\\images\\Consigli.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\Consigli1.jpg",
+      "PackagePath": "staticwebassets\\images\\Consigli1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\Consigli2.jpg",
+      "PackagePath": "staticwebassets\\images\\Consigli2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\Consigli3.jpg",
+      "PackagePath": "staticwebassets\\images\\Consigli3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\Consigli4.jpg",
+      "PackagePath": "staticwebassets\\images\\Consigli4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\Consigli5.jpg",
+      "PackagePath": "staticwebassets\\images\\Consigli5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\Gioco1.jpg",
+      "PackagePath": "staticwebassets\\images\\Gioco1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\Gioco2.jpg",
+      "PackagePath": "staticwebassets\\images\\Gioco2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\Gioco3.jpg",
+      "PackagePath": "staticwebassets\\images\\Gioco3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\Gioco4.jpg",
+      "PackagePath": "staticwebassets\\images\\Gioco4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\Gioco5.jpg",
+      "PackagePath": "staticwebassets\\images\\Gioco5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\Gioco6.jpg",
+      "PackagePath": "staticwebassets\\images\\Gioco6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\Iniziale_1.jpg",
+      "PackagePath": "staticwebassets\\images\\Iniziale_1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\Iniziale_2.jpg",
+      "PackagePath": "staticwebassets\\images\\Iniziale_2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\Iniziale_3.jpg",
+      "PackagePath": "staticwebassets\\images\\Iniziale_3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\Iniziale_4.jpg",
+      "PackagePath": "staticwebassets\\images\\Iniziale_4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\Iniziale_5.jpg",
+      "PackagePath": "staticwebassets\\images\\Iniziale_5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\Login.jpg",
+      "PackagePath": "staticwebassets\\images\\Login.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\Me.jpg",
+      "PackagePath": "staticwebassets\\images\\Me.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\Midnight.jpg",
+      "PackagePath": "staticwebassets\\images\\Midnight.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\Midnight2.jpg",
+      "PackagePath": "staticwebassets\\images\\Midnight2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\Midnight3.jpg",
+      "PackagePath": "staticwebassets\\images\\Midnight3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\Midnight4.jpg",
+      "PackagePath": "staticwebassets\\images\\Midnight4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\Midnight5.jpg",
+      "PackagePath": "staticwebassets\\images\\Midnight5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\Midnight6.jpg",
+      "PackagePath": "staticwebassets\\images\\Midnight6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\Midnight7.jpg",
+      "PackagePath": "staticwebassets\\images\\Midnight7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\Registrazione.jpg",
+      "PackagePath": "staticwebassets\\images\\Registrazione.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\Rokey.jpg",
+      "PackagePath": "staticwebassets\\images\\Rokey.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\Rokey1.jpg",
+      "PackagePath": "staticwebassets\\images\\Rokey1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\Rokey2.jpg",
+      "PackagePath": "staticwebassets\\images\\Rokey2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\accessori.jpg",
+      "PackagePath": "staticwebassets\\images\\accessori.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\accessori2.jpg",
+      "PackagePath": "staticwebassets\\images\\accessori2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\accessori3.jpg",
+      "PackagePath": "staticwebassets\\images\\accessori3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\accessori4.jpg",
+      "PackagePath": "staticwebassets\\images\\accessori4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\accessori5.jpg",
+      "PackagePath": "staticwebassets\\images\\accessori5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\inutilizzata.jpg",
+      "PackagePath": "staticwebassets\\images\\inutilizzata.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\Progetti\\Blog\\wwwroot\\images\\inutilizzata2.jpg",
+      "PackagePath": "staticwebassets\\images\\inutilizzata2.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.Blog.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.Blog.props",
+      "PackagePath": "build\\Blog.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.Blog.props",
+      "PackagePath": "buildMultiTargeting\\Blog.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.Blog.props",
+      "PackagePath": "buildTransitive\\Blog.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

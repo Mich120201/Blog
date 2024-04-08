@@ -1,0 +1,35 @@
+.navbar[b-xnnuo1jkhh] {
+    right: -100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    transition: all 0.45s ease;
+    background-color: #f8f9fa;
+}
+
+#navbar[b-xnnuo1jkhh] {
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    padding: 10px;
+}
+
+.nav-left[b-xnnuo1jkhh], .nav-center[b-xnnuo1jkhh], .nav-right[b-xnnuo1jkhh] {
+    display: flex;
+}
+
+.nav-center[b-xnnuo1jkhh] {
+    justify-content: center;
+    flex-grow: 0.5;
+    column-gap: 7.4rem;
+}
+
+.link[b-xnnuo1jkhh] {
+    text-decoration: none;
+}
+
+.nav-left[b-xnnuo1jkhh] {
+    font-family: Oldenburg;
+    font-weight: bold;
+}

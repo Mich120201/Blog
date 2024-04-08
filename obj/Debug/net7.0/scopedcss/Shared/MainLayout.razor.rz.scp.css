@@ -1,0 +1,31 @@
+.page[b-l8awx6406m] {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+main[b-l8awx6406m] {
+    flex: 1;
+}
+
+h1[b-l8awx6406m], h2[b-l8awx6406m], h3[b-l8awx6406m], h4[b-l8awx6406m], h5[b-l8awx6406m], h6[b-l8awx6406m] {
+    font-family: Oldenburg;
+    font-weight: bold;
+}
+
+p[b-l8awx6406m] {
+    font-family: Josefin Slab;
+}
+
+.footer[b-l8awx6406m] {
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f9fa;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.material-icons[b-l8awx6406m] {
+    font-size: 24px;
+    padding: 0 10px;
+}
