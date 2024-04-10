@@ -1,4 +1,3 @@
-![Screenshot 2024-04-10 101041](https://github.com/Mich120201/Blog/assets/97882894/43e053f1-e7f0-4392-9483-b88ffe18b573)
 ## Blog
 Questa è un applicazione in Blazor, un framework per la creazione di applicazioni web interattive con .NET e C#.
 # Scaricare e avviare il progetto
@@ -80,44 +79,43 @@ Questa è un applicazione in Blazor, un framework per la creazione di applicazio
     * parte superiore del file:
          •	@page "/" indica che questa è la pagina principale dell'applicazione.
        
-         ![Screenshot 2024-04-08 151309](https://github.com/Intelliware-s-r-l/Blog/assets/97882894/44c7b709-61df-440b-8bcf-97c25b4f6d86)
-       
+         ![Screenshot 2024-04-10 105249](https://github.com/Mich120201/Blog/assets/97882894/9f8b503f-7ba9-44e5-b46e-74bbe9580d04)
+      
          •	@inject HttpClient Http inietta un'istanza di HttpClient che può essere utilizzata per fare richieste HTTP.
          •	@using importa vari namespace necessari per il codice.
        
-         ![Screenshot 2024-04-08 151317](https://github.com/Intelliware-s-r-l/Blog/assets/97882894/4edffd66-da2f-4496-bf3c-9cf21c1337a1)
+         ![Screenshot 2024-04-10 105256](https://github.com/Mich120201/Blog/assets/97882894/a0718b80-acf2-455c-b0a2-555fd1563652)
        
          •	Il blocco <style> contiene i CSS per la formattazione della pagina.
        
-         ![Screenshot 2024-04-08 151403](https://github.com/Intelliware-s-r-l/Blog/assets/97882894/e0a68fad-8646-45bd-96d2-42234ad923a3)
-         ![Screenshot 2024-04-08 151422](https://github.com/Intelliware-s-r-l/Blog/assets/97882894/9648e624-3975-4a0b-b983-bb3e08189077)
+         ![Screenshot 2024-04-10 105358](https://github.com/Mich120201/Blog/assets/97882894/42ac90dd-8897-4054-9f32-76bd81d6b7ed)
+         ![Screenshot 2024-04-10 105409](https://github.com/Mich120201/Blog/assets/97882894/992fa728-115d-45fd-8709-e2091e6e74ff)
        
     * Nel corpo della pagina, c'è un controllo if che verifica se posts è null. Se non lo è, il codice itera sui post e li visualizza in vari modi. Se posts è null, viene visualizzato un messaggio di caricamento:
    
-       ![Screenshot 2024-04-08 152307](https://github.com/Intelliware-s-r-l/Blog/assets/97882894/9de8ef8c-8527-497e-aa5c-ef77011f12ed)
-       ![Screenshot 2024-04-08 152004](https://github.com/Intelliware-s-r-l/Blog/assets/97882894/b14d0c61-1361-4fbc-becf-be3caa26a4f5)
+         ![Screenshot 2024-04-10 105420](https://github.com/Mich120201/Blog/assets/97882894/d5dc186f-cfae-4786-8929-3a5010e8936d)
+         ![Screenshot 2024-04-10 105428](https://github.com/Mich120201/Blog/assets/97882894/ebf074b6-8e7b-4ea9-8452-983cc6a7b137)
 
          •	Il primo post viene visualizzato come un banner con un'immagine di sfondo, un titolo e una descrizione.
    
-       ![Screenshot 2024-04-08 151850](https://github.com/Intelliware-s-r-l/Blog/assets/97882894/a237e4bf-5c23-4d53-8968-a7c666905f96)
+         ![Screenshot 2024-04-10 105436](https://github.com/Mich120201/Blog/assets/97882894/ead4f6bd-5a44-4d7b-bdf4-b87c65d9055f)
 
          •	I successivi due post vengono visualizzati in una griglia a due colonne con immagini, titoli, descrizioni e pulsanti.
    
-       ![Screenshot 2024-04-08 151943](https://github.com/Intelliware-s-r-l/Blog/assets/97882894/89b4e92d-5989-402f-972f-f80ba9036a7f)
+         ![Screenshot 2024-04-10 105449](https://github.com/Mich120201/Blog/assets/97882894/dd09c0f8-32d4-49c2-9f6c-ac6bd73e1b76)
 
          •	I post successivi vengono visualizzati in una lista con titoli, descrizioni e link.
 
-        ![Screenshot 2024-04-08 151954](https://github.com/Intelliware-s-r-l/Blog/assets/97882894/d018de42-1647-4c26-9577-38b3869adf3a)
+         ![Screenshot 2024-04-10 105510](https://github.com/Mich120201/Blog/assets/97882894/4f6dcf89-1dfc-4c42-9c88-57557eeca5cf)
 
     * Infine, nel blocco @code:
          •	private Post[]? posts; dichiara un array di post che può essere null.
          •	OnInitializedAsync è un metodo del ciclo di vita del componente che viene chiamato quando il componente viene inizializzato. In questo metodo, l'applicazione fa una richiesta GET all'endpoint api/Post             per ottenere i post e li assegna all'array posts.
 
-       ![Screenshot 2024-04-08 152010](https://github.com/Intelliware-s-r-l/Blog/assets/97882894/5bcc2bf9-4aa7-4740-a916-8d9bfba7acc3)
+         ![Screenshot 2024-04-10 112403](https://github.com/Mich120201/Blog/assets/97882894/6082a55a-c3e3-4de6-a82a-c20ab120dac7)
 
-![Immagine 2024-04-08 154740](https://github.com/Intelliware-s-r-l/Blog/assets/97882894/5358fdf7-10ac-4bbb-8f1d-ec4cf6740113)
-![Immagine 2024-04-08 154806](https://github.com/Intelliware-s-r-l/Blog/assets/97882894/2121034b-f383-4c1d-827a-6c398880fe3b)
-
+![Screenshot 2024-04-10 112823](https://github.com/Mich120201/Blog/assets/97882894/18798cbd-62ec-4e75-a3eb-9e19ed68f918)
+![Screenshot 2024-04-10 112847](https://github.com/Mich120201/Blog/assets/97882894/005d3318-54d1-465e-be9b-ffb758b5db56)
 
   * Pagina "Chi Sono":
     La pagina è progettata per visualizzare informazioni sull'autore del blog. Ci si può navigare cliccando sul pulsante "Chi sono" posto in alto al centro della pagina "Home".
@@ -125,15 +123,15 @@ Questa è un applicazione in Blazor, un framework per la creazione di applicazio
 
          •	@page "/about_me" indica che questa è la pagina "About Me" dell'applicazione, accessibile tramite l'URL "/about_me".
 
-        ![Screenshot 2024-04-08 152931](https://github.com/Intelliware-s-r-l/Blog/assets/97882894/82538710-a6bd-49ea-8d44-99d6942849e2)
+        ![Screenshot 2024-04-10 113644](https://github.com/Mich120201/Blog/assets/97882894/c0ad9491-1362-422b-b039-4f6565c0258b)
 
          •	@using MudBlazor importa il namespace MudBlazor, che è una libreria di componenti per Blazor.
 
-        ![Screenshot 2024-04-08 152938](https://github.com/Intelliware-s-r-l/Blog/assets/97882894/0b301942-80fa-463c-a50d-b63c2b9f2bc4)
+        ![Screenshot 2024-04-10 113652](https://github.com/Mich120201/Blog/assets/97882894/52c1ef3e-b976-4159-af9d-4e52900bda54)
 
          •	Il blocco <style> contiene i CSS per la formattazione della pagina.
        
-        ![Screenshot 2024-04-08 152944](https://github.com/Intelliware-s-r-l/Blog/assets/97882894/2fd14d8d-b454-47f7-b912-f38f28da31e7)
+        ![Screenshot 2024-04-10 113701](https://github.com/Mich120201/Blog/assets/97882894/c8014028-c9a0-444d-bfe3-83fea1e1a479)
 
     * Nel corpo della pagina, c'è un div con la classe "post" che contiene un div con la classe "text". Questo div "text" contiene vari elementi h1, h3 e p che forniscono informazioni sull'autore del blog:
        
@@ -143,36 +141,35 @@ Questa è un applicazione in Blazor, un framework per la creazione di applicazio
        
          •	Gli elementi h3 fungono da sottotitoli per le varie sezioni del testo.
 
-       ![Screenshot 2024-04-08 153114](https://github.com/Intelliware-s-r-l/Blog/assets/97882894/26c17f9a-252e-4779-9b2d-fef745c92757)
+       ![Screenshot 2024-04-10 113740](https://github.com/Mich120201/Blog/assets/97882894/03581585-8d40-4ca8-9c0b-d6188667d977)
 
-![Screenshot 2024-04-08 155103](https://github.com/Intelliware-s-r-l/Blog/assets/97882894/542da2a6-e980-453e-8c93-0941d805e2e7)
-![Screenshot 2024-04-08 155137](https://github.com/Intelliware-s-r-l/Blog/assets/97882894/1d374c88-2611-44cf-8516-140049ca48d1)
-
+![Screenshot 2024-04-10 113757](https://github.com/Mich120201/Blog/assets/97882894/f6e7726a-0207-487c-b645-fd6c0869782f)
+![Screenshot 2024-04-10 113811](https://github.com/Mich120201/Blog/assets/97882894/f17a5cd6-dd75-4c74-993d-1dc8cc1a94f9)
 
   * Pagina "Nuovo Post":
     La pagina è progettata per permettere agli amministratori di creare nuovi post per il blog. Ci si può navigare cliccando sul bottone "Nuovo Post" posto in alto a destra della pagina "Home".
     * parte superiore del file:
          •	@page "/newpost" indica che questa è la pagina "New Post" dell'applicazione, accessibile tramite l'URL "/newpost".
 
-        ![Screenshot 2024-04-08 153240](https://github.com/Intelliware-s-r-l/Blog/assets/97882894/fea74623-74f4-4f89-b06f-cbc988ae5b63)
+        ![Screenshot 2024-04-10 114117](https://github.com/Mich120201/Blog/assets/97882894/9f337afe-abd8-44c9-ac7a-0443c7d11012)
 
          •	@inject HttpClient Http inietta un'istanza di HttpClient che può essere utilizzata per fare richieste HTTP.
        
          •	@using importa vari namespace necessari per il codice.
 
-        ![Screenshot 2024-04-08 153246](https://github.com/Intelliware-s-r-l/Blog/assets/97882894/1efa9362-9a04-4a9e-b2e3-6cf2578277c3)
+        ![Screenshot 2024-04-10 114136](https://github.com/Mich120201/Blog/assets/97882894/eb22ea7b-e084-4a80-99e6-b4778899d4c7)
 
          •	Il blocco <style> contiene i CSS per la formattazione della pagina.
 
-       ![Screenshot 2024-04-08 153533](https://github.com/Intelliware-s-r-l/Blog/assets/97882894/a156b2e1-bded-41d9-bb6e-5206338f69c3)
-       ![Screenshot 2024-04-08 153309](https://github.com/Intelliware-s-r-l/Blog/assets/97882894/1201b4c4-3af0-4c2c-b240-0395a9ea66d1)
+        ![Screenshot 2024-04-10 114333](https://github.com/Mich120201/Blog/assets/97882894/b8c53a98-bcbb-4746-8058-06575f096109)
+        ![Screenshot 2024-04-10 114346](https://github.com/Mich120201/Blog/assets/97882894/0363c285-7106-4906-bb88-82aee7de42fc)
 
     * Nel corpo della pagina, c'è un controllo if che verifica se l'utente è un amministratore. Se non lo è, viene visualizzato un modulo di login. Se l'utente è un amministratore, viene visualizzato un modulo          per la creazione di un nuovo post:
          •	Il modulo di login richiede un nome utente e una password. Se le credenziali sono errate, viene visualizzato un messaggio di errore.
        
          •	Il modulo per la creazione di un nuovo post richiede un titolo, un contenuto, un tipo e un URL per il post. Ci sono anche pulsanti per aggiungere il post o cancellare il modulo.
 
-       ![Screenshot 2024-04-08 153323](https://github.com/Intelliware-s-r-l/Blog/assets/97882894/b62ed5f8-eef4-460b-a1e4-ad16471b5c13)
+       ![Screenshot 2024-04-10 114520](https://github.com/Mich120201/Blog/assets/97882894/a98a91a4-e1af-4208-a1d8-f07d890bca02)
 
     * Infine, nel blocco @code:
          •	Ci sono vari campi per memorizzare le informazioni inserite nel modulo e i dati degli utenti.
@@ -183,44 +180,42 @@ Questa è un applicazione in Blazor, un framework per la creazione di applicazio
        
          •	Cancel è un metodo che cancella le informazioni inserite nel modulo.
 
-       ![Screenshot 2024-04-08 153349](https://github.com/Intelliware-s-r-l/Blog/assets/97882894/abf590bd-29af-4882-a584-504d12913af9)
+       ![Screenshot 2024-04-10 114532](https://github.com/Mich120201/Blog/assets/97882894/b64a99d3-663b-47a9-8b7e-dda6a077956f)
 
-![Immagine 2024-04-08 155411](https://github.com/Intelliware-s-r-l/Blog/assets/97882894/006be8d1-d88b-48ba-a403-3fffbe945d07)
-![Immagine 2024-04-08 155328](https://github.com/Intelliware-s-r-l/Blog/assets/97882894/0a8d4325-ca47-4990-bdce-27669f1ccf3f)
-![Screenshot 2024-04-08 155348](https://github.com/Intelliware-s-r-l/Blog/assets/97882894/f106388b-e397-48b3-afdf-b27826a267da)
-
+![Screenshot 2024-04-10 114853](https://github.com/Mich120201/Blog/assets/97882894/8b454635-b7d8-4a23-81de-0b3dd8cffb3c)
+![Screenshot 2024-04-10 114930](https://github.com/Mich120201/Blog/assets/97882894/69508c89-5c60-4f2b-aa0d-7d443bb8137a)
 
   * Pagina "Leggi l'articolo":
     La pagina è progettata per visualizzare un post specifico del blog. Ci si può accedere cliccando su uno dei pulsanti "Leggi l'articolo" posti al di sotto dei post visualizzati nella pagina "Home".
     * parte superiore del file:
          •	@page "/{id}" indica che questa è una pagina dinamica che può essere accessibile tramite un URL che include un ID, come "/123".
 
-        ![Screenshot 2024-04-08 153934](https://github.com/Intelliware-s-r-l/Blog/assets/97882894/e678fb4c-90e5-4a0a-8e81-ad79bec89ba8)
+        ![Screenshot 2024-04-10 115309](https://github.com/Mich120201/Blog/assets/97882894/dc5d837a-cacd-4d2d-a723-8aa13d922147)
 
          •	@inject HttpClient Http inietta un'istanza di HttpClient che può essere utilizzata per fare richieste HTTP.
        
          •	@using importa vari namespace necessari per il codice.
 
-        ![Screenshot 2024-04-08 154126](https://github.com/Intelliware-s-r-l/Blog/assets/97882894/95faec17-5396-4535-bb09-438ff642a98d)
+        ![Screenshot 2024-04-10 115315](https://github.com/Mich120201/Blog/assets/97882894/7a9a2bca-ec99-45ea-b649-0698c5cb671b)
 
          •	Il blocco <style> contiene i CSS per la formattazione della pagina.
 
-       ![Screenshot 2024-04-08 153958](https://github.com/Intelliware-s-r-l/Blog/assets/97882894/3e2952cf-3c11-400a-a055-aa3c23b884d9)
+        ![Screenshot 2024-04-10 115333](https://github.com/Mich120201/Blog/assets/97882894/fac5680b-d79e-4f4c-97f4-bc3267199f73)
 
     * Nel corpo della pagina, c'è un controllo if che verifica se post è null. Se non lo è, il codice visualizza il titolo e la descrizione del post. Se post è null, viene visualizzato un messaggio che indica           che il post non è stato trovato.
 
-       ![Screenshot 2024-04-08 154012](https://github.com/Intelliware-s-r-l/Blog/assets/97882894/6461fa20-bcb4-4808-9edb-6e9e0d1cd0ce)
+       ![Screenshot 2024-04-10 115344](https://github.com/Mich120201/Blog/assets/97882894/8db2f5e6-be4c-46bf-baa4-3e2f0f5e9999)
 
     * Infine, nel blocco @code:
          •	id è un parametro che contiene l'ID del post da visualizzare.
        
          •	post è una variabile che contiene il post da visualizzare.
        
-         •	OnInitializedAsync è un metodo del ciclo di vita del componente che viene chiamato quando il componente viene inizializzato. In questo metodo, l'applicazione fa una richiesta GET all'endpoint                      api/Post/{postId} per ottenere il post e assegna il risultato a post. Fa anche richieste GET agli endpoint api/Commenti e api/Risposte per ottenere i commenti e le risposte.
+         •	OnInitializedAsync è un metodo del ciclo di vita del componente che viene chiamato quando il componente viene inizializzato. In questo metodo, l'applicazione fa una richiesta GET all'endpoint                      api/Post/{postId} per ottenere il post e assegna il risultato a post.
+      
+       ![Screenshot 2024-04-10 115352](https://github.com/Mich120201/Blog/assets/97882894/1cc0b5b0-1009-41b6-afef-c3a79cd1998f)
 
-       ![Screenshot 2024-04-08 154050](https://github.com/Intelliware-s-r-l/Blog/assets/97882894/02ccac51-5478-42c6-8556-22e76e813e41)
-
-![Immagine 2024-04-08 155548](https://github.com/Intelliware-s-r-l/Blog/assets/97882894/e528d1f4-9dea-43c0-8fa5-b01b39a3039f)
+![Screenshot 2024-04-10 115803](https://github.com/Mich120201/Blog/assets/97882894/6a1854d8-96cc-4077-b228-283a42b0e7c1)
 
   * Pagina "MainLayout":
     Questa è la definizione del layout principale per un'applicazione Blazor. Il layout principale è un componente speciale che viene utilizzato per definire la struttura comune delle pagine dell'applicazione.        Questo layout definisce la struttura comune delle pagine dell'applicazione, che include il menu di navigazione e un'area per il contenuto specifico della pagina. Tutte le pagine che utilizzano questo layout       avranno la stessa struttura, ma con contenuti diversi. Questa pagina non è visuallizzabile in quanto è solo un contenitore per la struttura base delle pagine che verranno visualizzate.
@@ -229,11 +224,11 @@ Questa è un applicazione in Blazor, un framework per la creazione di applicazio
        
          •	@inherits LayoutComponentBase indica che questo componente eredita da LayoutComponentBase, che è la classe base per i layout in Blazor.
 
-        ![Screenshot 2024-04-08 154257](https://github.com/Intelliware-s-r-l/Blog/assets/97882894/c051ba35-0e7d-4172-ab26-321e4a0eb860)
+        ![Screenshot 2024-04-10 120257](https://github.com/Mich120201/Blog/assets/97882894/6e2de22a-2a20-4a3c-b257-8aac2fa7a4aa)
 
          •	Il blocco <style> contiene i CSS per la formattazione del layout.
 
-       ![Screenshot 2024-04-08 154305](https://github.com/Intelliware-s-r-l/Blog/assets/97882894/55c6a5ce-1cc5-49bc-aacd-fb7355822b97)
+       ![Screenshot 2024-04-10 120308](https://github.com/Mich120201/Blog/assets/97882894/70d39a5a-dbce-4e08-8ecd-15c602df4864)
 
     * Nel corpo del layout, c'è un div con la classe "page" che contiene il menu di navigazione e il contenuto principale dell'applicazione.
          •	NavMenu è un componente che viene utilizzato per visualizzare il menu di navigazione. Questo componente viene visualizzato in tutte le pagine che utilizzano questo layout.
@@ -242,7 +237,7 @@ Questa è un applicazione in Blazor, un framework per la creazione di applicazio
        
          •	@Body è un segnaposto che viene sostituito con il contenuto specifico di ogni pagina.
 
-       ![Screenshot 2024-04-08 154313](https://github.com/Intelliware-s-r-l/Blog/assets/97882894/aca92096-53b1-4e77-ab11-13d2b27c397d)
+       ![Screenshot 2024-04-10 120316](https://github.com/Mich120201/Blog/assets/97882894/41e01ed2-26e3-4d33-82b6-75c3de144cfe)
 
   * Pagina "NavMenu"
     Questa è la definizione del menu di navigazione per un'applicazione Blazor. Il menu di navigazione è un componente speciale che viene utilizzato per navigare tra le diverse pagine dell'applicazione. Questo        componente definisce il menu di navigazione dell'applicazione, che include link alla homepage, alla pagina "About Me" e alla pagina "New Post". Quando l'utente clicca su uno di questi link, l'applicazione         naviga alla pagina corrispondente.
@@ -251,11 +246,12 @@ Questa è un applicazione in Blazor, un framework per la creazione di applicazio
        
          •	@inject NavigationManager NavManager e @inject IJSRuntime JSRuntime iniettano un'istanza di NavigationManager e IJSRuntime che possono essere utilizzate per la navigazione e l'esecuzione di codice                 JavaScript, rispettivamente.
 
-        ![Screenshot 2024-04-08 154424](https://github.com/Intelliware-s-r-l/Blog/assets/97882894/3020b727-963f-4616-92d9-f9aa6e105169)
+        ![Screenshot 2024-04-10 120713](https://github.com/Mich120201/Blog/assets/97882894/aabb301a-99d8-4f36-bd12-beaf654f201c)
 
          •	Il blocco <style> contiene i CSS per la formattazione del menu di navigazione.
 
-       ![Screenshot 2024-04-08 154537](https://github.com/Intelliware-s-r-l/Blog/assets/97882894/2cb1ee69-a4f7-4b2f-b33a-2d8c977a4610)
+        ![Screenshot 2024-04-10 120721](https://github.com/Mich120201/Blog/assets/97882894/7ff56537-769a-41bc-961b-1dedfcad5e9c)
+
 
     * Nel corpo del componente, c'è un elemento <nav> che contiene tre div: "nav-left", "nav-center" e "nav-right":
          •	"nav-left" contiene un elemento <text> che visualizza il titolo "Storie di Coda".
@@ -264,4 +260,4 @@ Questa è un applicazione in Blazor, un framework per la creazione di applicazio
        
          •	"nav-right" contiene un link a "/newpost" con un pulsante "Nuovo Post".
 
-       ![Screenshot 2024-04-08 154450](https://github.com/Intelliware-s-r-l/Blog/assets/97882894/eb4a36aa-7d74-4286-a95b-8cd65422e001)
+       ![Screenshot 2024-04-10 120729](https://github.com/Mich120201/Blog/assets/97882894/4d8ff671-ba74-419d-aed1-c4a94e7dab54)
