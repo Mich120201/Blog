@@ -1,3 +1,4 @@
+![Screenshot 2024-04-10 101041](https://github.com/Mich120201/Blog/assets/97882894/43e053f1-e7f0-4392-9483-b88ffe18b573)
 ## Blog
 Questa è un applicazione in Blazor, un framework per la creazione di applicazioni web interattive con .NET e C#.
 # Scaricare e avviare il progetto
